@@ -1,4 +1,3 @@
 ## Pinia and composition api
 
-ttest
-good
+ok nice
