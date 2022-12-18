@@ -6,6 +6,9 @@ import { onBeforeMount } from "vue";
 const store = usePostStore();
 
 onBeforeMount(store.PostAction);
+const showmessage = (id) => {
+  console.log("hello ", id);
+};
 </script>
 <style scope>
 body {
@@ -15,6 +18,6 @@ body {
 
 <template>
   <div v-for="(data, index) in store.posts" :key="index">
-    <Card :data="data" />
+    <Card :data="data" @submitData="showmessage" />
   </div>
 </template>
