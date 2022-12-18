@@ -1,9 +1,11 @@
 <script setup>
-import Card from "@/components/Card.vue";
+import Card from "@/components/CardItem.vue";
 import { usePostStore } from "@/stores/usePostStore.js";
+import { onBeforeMount } from "vue";
 
 const store = usePostStore();
-store.PostAction();
+
+onBeforeMount(store.PostAction);
 </script>
 <style scope>
 body {

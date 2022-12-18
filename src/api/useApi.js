@@ -1,17 +1,14 @@
 import { ref } from "vue";
 
-const getPosts = () => {
+const getPosts = async () => {
   const posts = ref([]);
   const errors = ref([]);
   const load = async () => {
-    try {
-      const data = await fetch("https://jsonplaceholder.typicode.com/todos");
-      posts.value = await data.json();
-    } catch (error) {
-      errors.value = error;
-    }
+    const data = await fetch("https://jsonplaceholder.typicode.com/todos");
+    posts.value = await data.json();
   };
-  return { posts, errors, load };
+  await load();
+  return { posts, errors };
 };
 
 export default getPosts;

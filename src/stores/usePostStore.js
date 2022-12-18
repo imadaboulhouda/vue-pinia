@@ -6,8 +6,8 @@ export const usePostStore = defineStore("posts_store", {
   }),
   actions: {
     async PostAction() {
-      const { load, posts: post } = getPosts();
-      await load();
+      const { posts: post } = await getPosts();
+
       this.posts = post.value;
     },
   },
